@@ -34,6 +34,8 @@ function App() {
                 <option value="tests">Tests</option>
                 <option value="deathsPerOneMillion">Deaths Per One Million</option>
             </select>
+
+            <h2>Hover over graph to see data</h2>
             
             <div className="visHolder">
                 <BarChart data={countryData} height={500} widthOfBar={12} width={countryData.length * 6} dataType={dataType}/>
@@ -72,7 +74,7 @@ function BarChart({data, height, width, widthOfBar, dataType}) {
         .data(covidData)
         .style("fill", (d, i) => (i % 2 == 0 ? "#9b111e": "#D03D56" )) // 
         .style("margin-left", "30px")
-        .attr("x", (d, i) => i * (widthOfBar + 5))
+        .attr("x", (d, i) => i * (widthOfBar + 2))
         .attr("y", (d) => height - yScale(d + dataMax * 0.1))
         .attr("height", (d, i) => yScale(d + dataMax * 0.1))
         .attr("width", widthOfBar)
